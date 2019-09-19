@@ -548,7 +548,7 @@ resource "google_compute_instance" "wordpress" {
 
 
 
-  metadata_startup_script = "sudo  echo \"root:root123\" | chpasswd; sudo  mv /etc/ssh/sshd_config  /opt; sudo touch /etc/ssh/sshd_config; sudo echo -e \"Port 22\nHostKey /etc/ssh/ssh_host_rsa_key\nPermitRootLogin yes\nPubkeyAuthentication yes\nPasswordAuthentication yes\nUsePAM yes\" >  /etc/ssh/sshd_config; sudo systemctl restart sshd; sudo apt install git  -y; git clone https://github.com/iamdaaniyaal/Terraform.git; cd Terraform/scripts/compute; sudo chmod 777 wordpress.sh; ./wordpress.sh"
+  metadata_startup_script = "sudo  echo \"root:root123\" | chpasswd; sudo  mv /etc/ssh/sshd_config  /opt; sudo touch /etc/ssh/sshd_config; sudo echo -e \"Port 22\nHostKey /etc/ssh/ssh_host_rsa_key\nPermitRootLogin yes\nPubkeyAuthentication yes\nPasswordAuthentication yes\nUsePAM yes\" >  /etc/ssh/sshd_config; sudo systemctl restart sshd; sudo apt install git  -y; git clone https://github.com/iamdaaniyaal/Terraform.git; cd /Terraform/scripts/compute; sudo chmod 777 wordpress.sh; ./wordpress.sh"
 
 
 }
@@ -689,7 +689,7 @@ resource "google_compute_instance" "elk" {
   # foo = "bar"
   #}
 
-  metadata_startup_script = "sudo apt-get update; sudo apt-get install git -y; sudo echo 'export ip='$(hostname -i)'' >> ~/.profile; source ~/.profile; echo \"export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\" >>/etc/profile; echo \"export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin\" >>/etc/profile; source /etc/profile; mkdir chandu; cd chandu; sudo apt-get install wget -y; git clone https://github.com/iamdaaniyaal/Terraform.git; cd Terraform/devops; sudo chmod 777 elk.sh; sh elk.sh"
+  metadata_startup_script = "sudo apt-get update; sudo apt-get install git -y; sudo echo 'export ip='$(hostname -i)'' >> ~/.profile; source ~/.profile; echo \"export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64\" >>/etc/profile; echo \"export PATH=$PATH:$HOME/bin:$JAVA_HOME/bin\" >>/etc/profile; source /etc/profile; mkdir chandu; cd chandu; sudo apt-get install wget -y; git clone https://github.com/iamdaaniyaal/Terraform.git; cd /chandu/Terraform/scripts/devops; sudo chmod 777 elk.sh; sh elk.sh"
 
 
 
