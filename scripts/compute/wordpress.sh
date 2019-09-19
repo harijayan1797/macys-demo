@@ -14,10 +14,10 @@ sudo cp /wp-config.php /var/www/html/wp-config.php
 sudo systemctl restart apache2
 sudo curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.5.3-amd64.deb
 sudo dpkg -i filebeat-5.5.3-amd64.deb
-sudo cd /
-sudo cd /etc/filebeat/
+cd /
+cd /etc/filebeat/
 sudo rm -rf filebeat.yml
-sudo cd /
+cd /
 sudo cp /filebeat.yml /etc/filebeat/filebeat.yml
 sudo /etc/init.d/filebeat start
 sudo service filebeat start
